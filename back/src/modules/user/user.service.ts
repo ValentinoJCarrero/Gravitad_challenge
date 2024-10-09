@@ -7,7 +7,7 @@ async function getUsers(page: number, limit: number) {
     .skip((page - 1) * limit).limit(limit);
     
     const total = await User.countDocuments();
-    
+
     return { users, total };
 }
 
@@ -24,11 +24,12 @@ async function createUser(name: string, email: string, password: string) {
     return await hashedUser.save();
 }
 
-async function updateUser(userId: string, admin: boolean) {
+async function updateUser(userId: string, email: string, name: string) {
     const user = await User.findById(userId, '-password -__v');
     if(!user) throw new Error('Usuario no encontrado');
 
-    user.isAdmin = admin;
+    user.email = email;
+    user.name = name;
     return await user.save();
 }
 

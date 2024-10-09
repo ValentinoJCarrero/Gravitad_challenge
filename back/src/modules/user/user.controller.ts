@@ -28,9 +28,10 @@ export class UserController {
     public async updateUser(req: Request, res: Response) {
         try {
             if(!req.params.userId) throw Error('Propiedad "userId" es requerida.');
-            if(!req.body.admin) throw Error('Propiedad "admin" es requerida.');
+            if(!req.body.email) throw Error('Propiedad "email" es requerida.');
+            if(!req.body.name) throw Error('Propiedad "name" es requerida.');
     
-            const user = await userService.updateUser(req.params.userId, req.body.admin);
+            const user = await userService.updateUser(req.params.userId, req.body.email, req.body.name);
             res.json({ ok: true, user });
         } catch (error: any) {
             res.status(400).json({ ok: false, error: error.message });

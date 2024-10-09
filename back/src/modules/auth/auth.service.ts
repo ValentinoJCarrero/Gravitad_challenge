@@ -18,6 +18,7 @@ async function signUp(name: string, email: string, password: string) {
 async function signIn(email: string, password: string) {
     const user = await User.findOne({ email });
     if (!user) throw Error('Credenciales invalidas.');
+    if(user.isAdmin === false) throw Error('Acceso solo para administradores.');
 
     const isPasswordValid = (user.password === (CryptoJS.SHA256(password).toString()));
     if (!isPasswordValid) throw Error('Credenciales invalidas.');
