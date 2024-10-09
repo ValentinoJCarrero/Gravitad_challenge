@@ -3,11 +3,12 @@ import axios from 'axios';
 import CryptoJS from 'crypto-js';
 
 async function getUsers(page: number, limit: number) {
-    console.log('atroden')
     const users = await User.find({}, '-password -__v')
     .skip((page - 1) * limit).limit(limit);
-
-    return users;
+    
+    const total = await User.countDocuments();
+    
+    return { users, total };
 }
 
 async function createUser(name: string, email: string, password: string) {

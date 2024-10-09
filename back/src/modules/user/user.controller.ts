@@ -5,12 +5,10 @@ export class UserController {
     public async getUsers(req: Request, res: Response) {
         try {
             const page = parseInt(req.query.page as string) || 1; 
-            const limit = parseInt(req.query.limit as string) || 10;
+            const limit = parseInt(req.query.limit as string) || 9;
             
             const users = await userService.getUsers(page, limit);
-            console.log('console 2', users);
-            
-            res.json({ ok: true, users });
+            res.json({ ok: true, data: users });
         } catch (error: any) {
             res.status(400).json({ ok: false, error: error.message });
         }
