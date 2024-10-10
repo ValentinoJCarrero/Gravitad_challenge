@@ -30,6 +30,7 @@ h1 {
   width: 100%;
   max-width: 300px;
   margin: 0 auto;
+  position: relative;
 }
 
 .user-avatar {
@@ -52,6 +53,45 @@ h2 {
 .user-id {
   color: #999;
   font-size: 0.9rem;
+}
+
+.user-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.edit-button,
+.delete-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.edit-button:hover {
+  background-color: #45a049;
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #da190b;
 }
 
 .pagination {
@@ -80,7 +120,7 @@ h2 {
   color: white;
 }
 
-/* From Uiverse.io by elijahgummer */
+/* From Uiverse.io by elijahgummer */ 
 .styled-button {
   position: relative;
   padding: 1rem 2rem;
@@ -153,4 +193,85 @@ h2 {
   filter: drop-shadow(0 10px 20px rgba(50, 50, 50, 1))
     drop-shadow(0 0 20px rgba(2, 2, 2, 1));
   transform: rotate(-35deg);
+}
+
+/* ADM PANEL */
+
+.admin-panel-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #7f8d9b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.admin-panel-button:hover {
+  background-color: #0056b3;
+}
+
+.admin-panel-button:focus {
+  outline: none;
+}
+
+/* EDITAR */
+.edit-input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  color: #333;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.edit-input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.confirm-edit-button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.confirm-edit-button:hover {
+  background-color: #45a049;
+}
+
+.cancel-edit-button {
+  padding: 10px 20px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.cancel-edit-button:hover {
+  background-color: #da190b;
 }
