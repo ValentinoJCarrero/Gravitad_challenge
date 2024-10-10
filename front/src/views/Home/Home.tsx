@@ -1,17 +1,18 @@
 import { useState, useEffect } from "react";
 import "./Home.css";
+import SignupModal from "../../components/SignupModal/SignupModal";
 
 interface User {
   _id: string;
   name: string;
   email: string;
-  isAdmin: boolean;
 }
 
 function Home() {
   const [users, setUsers] = useState<User[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalUsers, setTotalUsers] = useState(0);
+  const [isSignupModalOpen, setIsSignupModalOpen] = useState(false);
   const usersPerPage = 6;
 
   useEffect(() => {
@@ -72,7 +73,7 @@ function Home() {
         CREA TU CUENTA PARA CONTRIBUIR CON NOSOTROS
       </h2>
 
-      <button className="styled-button">
+      <button className="styled-button" onClick={() => setIsSignupModalOpen(true)} >
         Registrarme
         <div className="inner-button">
         <svg
@@ -96,6 +97,11 @@ function Home() {
     </svg>
         </div>
       </button>
+
+      <SignupModal
+        isOpen={isSignupModalOpen}
+        onClose={() => setIsSignupModalOpen(false)}
+      />
     </div>
   );
 }
